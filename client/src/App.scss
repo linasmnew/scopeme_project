@@ -1,0 +1,644 @@
+$font-stack: "Avenir Medium", "Avenir" !important;
+$logo-navigation-button-authArea-color: rgba(0,0,0, 0.5);
+$input-placeholder: #bab9b9;
+
+h1,h2,h3,h4,h5,h6,a,p,div,img,label,form,ul,ol,li {
+  margin: 0px;
+  padding: 0px;
+}
+a { text-decoration: none; }
+a:link { color: inherit; }
+a:visited { color: inherit; }
+ul { list-style: none; }
+button { border-style: none; }
+input {
+  font-family: $font-stack;
+  outline: none;
+  vertical-align: middle;
+  line-height: normal;
+}
+::-webkit-input-placeholder { color: #bab9b9; } /* Chrome/Opera/Safari */
+::-moz-placeholder { color: #bab9b9; } /* Firefox 19+ */
+:-ms-input-placeholder { color: #bab9b9; } /* IE 10+ */
+:-moz-placeholder { color: #bab9b9; } /* Firefox 18- */
+
+input, textarea, input[type="search"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+body {
+  font-family: $font-stack;
+  width: 100%;
+}
+
+@mixin application-wrapper($background-color) {
+  width: 100%;
+  background-color: $background-color;
+  position: absolute; top: 0; left: 0;
+}
+
+
+/*******************************
+  =Application wrappers
+*******************************/
+/* wraps entire app */
+.guest_app_wrapper {
+  @include application-wrapper(#49d0ad);
+}
+.user_app_wrapper {
+  @include application-wrapper(#f2f2f2);
+}
+
+/* wraps entire app inside wrapper */
+.App {
+  box-sizing: border-box;
+  padding: 20px 10px 20px 10px;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* add space between footer and last element. Fixes padding issue on small devices */
+.footer_fix {
+  height: 20px;
+}
+
+.footer {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 0px 25px 20px 25px;
+  word-wrap: break-word;
+  color: rgba(0,0,0, 0.5);
+
+  ul {
+    display: inline-block;
+  }
+  p{
+    float: right;
+  }
+}
+
+.footer_visitor {
+  color: #fff;
+  padding: 0px 10px 20px 10px;
+}
+
+/*******************************
+  =Form validation styling
+*******************************/
+@mixin form-validation($color) {
+  border-bottom: solid $color;
+  color: $color;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+}
+
+.general_form_success {
+  @include form-validation(#2FE891);
+}
+.general_form_error {
+  @include form-validation(#f26d7d);
+}
+.field_error {
+  @include form-validation(#f26d7d);
+}
+
+
+/*******************************
+  =Header [logo, navigation, search]
+*******************************/
+.App-header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* logo */
+.logoContainer {
+  float: left;
+
+  .logoName.auth_logo {
+    color: $logo-navigation-button-authArea-color;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .logoName.guest_logo {
+    color: #fff;
+    font-weight: 500;
+    margin-top: -5px;
+  }
+}
+
+/* Navigation */
+.App_menu_icon_container {
+  position: absolute;
+  right: 0px;
+  z-index: 999;
+}
+.App_menu_icon_container_auth {
+  right: 15px;
+}
+.responsive_nav_container.hide {
+  display: none;
+}
+.responsive_nav_container.show {
+  display: block;
+}
+
+.responsive_nav_container_outer_fix_collapse {
+  overflow: hidden;
+  clear: both;
+}
+
+.responsive_nav_container {
+  margin-top: 10px;
+
+  .guest_nav {
+    background: #00bf8f;
+  }
+  .user_nav {
+    background: $logo-navigation-button-authArea-color;
+  }
+
+  nav {
+    color: #fff;
+    ul {
+      padding: 10px 0px 10px 0px;
+    }
+    li {
+      text-align: center;
+    }
+    li a {
+      display: block;
+      padding: 15px;
+    }
+  }
+}
+
+
+
+
+/* Search */
+.searchContainer {
+  clear: both;
+  padding-top: 10px;
+
+  input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgba(76,86,82, 0.1);
+    background: #f2f2f2;
+    padding: 7px;
+    text-align: center;
+  }
+
+  input::-webkit-input-placeholder { color: #aaa; } /* Chrome/Opera/Safari */
+  input::-moz-placeholder { color: #aaa; } /* Firefox 19+ */
+  input:-ms-input-placeholder { color: #aaa; } /* IE 10+ */
+  input:-moz-placeholder { color: #aaa; } /* Firefox 18- */
+
+  .search_results {
+    text-align: center;
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid rgba(76,86,82, 0.1);
+  }
+  .search_results_username {
+    font-weight: 500;
+  }
+  .search_results_fullName {
+    font-family: Avenir;
+  }
+  .search_results_noMatch {
+    font-family: Avenir;
+  }
+
+
+  .search_input_container {
+    position: relative;
+
+    input{
+      text-indent: 30px;
+    }
+
+    .search_icon_span {
+      position: absolute;
+      top: 11px;
+      left: 50%;
+      margin-left: -36px;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .search_input_container_input_focused {
+    input {
+      text-indent: 30px;
+      text-align: left;
+    }
+    .search_icon_span {
+      margin-left: 0px;
+      left: 10px;
+    }
+  }
+}
+
+
+
+
+
+
+
+/*******************************
+  =HomePage component
+*******************************/
+.homepage_content_container {
+  text-align: center;
+  margin-top: 130px;
+  // margin-top: 20%;
+
+  h2 {
+    color: #fff;
+    font-weight: 500;
+  }
+  .link_getStarted {
+    display: inline-block;
+    margin-top: 25px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 40px 10px 40px;
+    font-size: 18px;
+  }
+  .link_getStarted:hover {
+    background: #fff;
+    color: #000;
+  }
+}
+
+
+
+/*******************************
+  =[Login, Signup, Terms] components
+*******************************/
+.guest_component_container {
+  border-radius: 5px;
+  background: #fff;
+  margin-top: 100px;
+  padding: 20px;
+
+  h4 {
+    padding-bottom: 20px;
+  }
+
+  form {
+    input {
+      border-radius: 5px;
+      box-sizing: border-box;
+      display: block;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #eee;
+      border-style: none;
+      width: 100%;
+    }
+    button {
+      border-radius: 5px;
+      margin-bottom: 0px;
+      background: #f26d7d;
+      color: #fff;
+      width: 100%;
+      display: block;
+      padding: 15px;
+    }
+  }
+
+  .authentication_info_p {
+    color: #bdbebe;
+    font-size: 14px;
+    padding-top: 20px;
+  }
+  .authentication_info_link {
+    color: #72c2e3;
+    text-decoration: underline;
+  }
+
+}
+
+
+
+/*******************************
+  Each User area component is wrapped in auth_component_container
+  so these are user-area-wide styles
+*******************************/
+/* adds a white wrapper around components */
+.auth_component_container {
+  border-radius: 5px;
+  border: 1px solid rgba(211, 209, 209, 0.34);
+  box-shadow: 0px 1px 1px rgba(0,0,0, 0.1);
+  background: #f5f5f5;
+  padding: 15px;
+  margin-bottom: 30px;
+  word-wrap: break-word;
+  overflow: hidden;
+
+
+  /* default form styles for all forms inside auth_component_container */
+  form {
+    input, textarea {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      padding: 15px;
+      border: 1px solid rgba(211, 209, 209, 0.34);
+      border-radius: 5px;
+      background: #f2f2f2;
+      margin-bottom: 3px;
+    }
+    textarea {
+      padding: 6px 10px;
+      height: 80px;
+    }
+    button {
+      width: 100%;
+      display: block;
+      background: #49d0ad;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    h4 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: #646464;
+    }
+  }
+}
+
+.auth_component_container:last-child {
+  margin-bottom: 30px;
+}
+
+
+
+/*******************************
+  =Dashboard components [profile, scope form, scope list]
+*******************************/
+/*  profile section */
+.profile_container {
+  position: relative;
+
+  .loading_indicator {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .loader {
+    display: block;
+    margin: 0 auto;
+    border: 8px solid #adadad;
+    border-top: 8px solid #f3f3f3;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .profile_image_and_bio_container {
+    color: rgba(0,0,0, 0.5);
+
+    .edit_profile_button {
+      position: absolute;
+      border: none;
+      background: none;
+      outline: none;
+      right: 0;
+    }
+
+    .profile_image_cropper {
+      width: 84px;
+      height: 84px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin: auto;
+      background-image: url('user.svg');
+      // background: #ccc;
+      img {
+        height: 100%;
+      }
+    }
+
+    .username {
+      text-align: center;
+      padding-top: 10px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .bio_fullName_and_description_container {
+      padding-top: 10px;
+      text-align: center;
+
+      .bio_fullName {
+        padding-right: 5px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+
+
+/*******************************
+  =Profile component
+*******************************/
+.remove_account_button {
+  width: 100%;
+  display: block;
+  background: #FF6068;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+
+
+
+
+/* scope form section */
+.scope_form_container {
+  .optional_color_icon_container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    img {
+      vertical-align: middle;
+    }
+    p {
+      display: inline-block;
+      color: #646464;
+      padding-left: 10px;
+      vertical-align: middle;
+    }
+  }
+
+  .scope_color_inputs_wrapper.hide {
+    display: none;
+  }
+  .scope_color_inputs_wrapper.show {
+    display: block;
+  }
+}
+
+
+/* scope list section */
+.scope_block {
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+  margin-bottom: 10px;
+
+  a {
+    display: block;
+    padding: 60px;
+    font-size: 20px;
+  }
+
+  .scope_buttons_container {
+    width: 100%;
+    background: #eee;
+    text-align: right;
+
+    button {
+      background: none;
+      margin-top: 5px;
+      padding-left: 15px;
+    }
+  }
+}
+.scope_block:last-child {
+  margin-bottom: 0px;
+}
+
+
+
+/*******************************
+  =404 page
+*******************************/
+.not_found_page_container {
+  color: #aaa;
+  text-align: center;
+  padding-top: 100px;
+
+  h1 {
+    padding-bottom: 10px;
+  }
+}
+
+.not_found_page_guest {
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************************
+  =Media queries
+*******************************/
+@media screen and (min-width: 359px) {
+  .homepage_content_container {
+    margin-top: 170px;
+  }
+}
+
+
+@media screen and (min-width: 568px) {
+  .auth_logo {
+    line-height: 1.5
+  }
+  //Make search inline with logo and navigation
+  .searchContainer {
+    padding-top: 0;
+    width: 217px;
+    clear: none;
+    float: left;
+    position: relative;
+    left: 50%;
+  }
+  /* fix for positioning search in the center using floats */
+  .searchContainerInnerFix {
+    float: left;
+    position: relative;
+    left: -50%;
+    margin-left: -97px;
+  }
+  .App_menu_icon_container_auth {
+     margin-top: 2px;
+  }
+}
+
+
+
+@media screen and (min-width: 800px) {
+  .homepage_content_container {
+    margin-top: 230px;
+  }
+  .guest_component_container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 100px;
+  }
+  .auth_component_container {
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .App-header {
+    max-width: 100%;
+  }
+
+  .scope_block {
+    display: inline-block;
+    width: 49%;
+    // margin-bottom: 24px;
+  }
+  .scope_block:nth-child(even) {
+    margin-left: 2%;
+  }
+}
+
+
+
+
+@media screen and (min-width: 1020px) {
+  .homepage_content_container {
+    margin-top: 230px;
+  }
+  .guest_component_container {
+    margin-top: 120px;
+  }
+}
+
+
+@media screen and (min-width: 1320px) {
+  .homepage_content_container {
+    margin-top: 250px;
+  }
+  .guest_component_container {
+    margin-top: 160px;
+  }
+}
