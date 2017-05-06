@@ -17,6 +17,9 @@ input {
   vertical-align: middle;
   line-height: normal;
 }
+textarea {
+  font-family: $font-stack;
+}
 ::-webkit-input-placeholder { color: #bab9b9; } /* Chrome/Opera/Safari */
 ::-moz-placeholder { color: #bab9b9; } /* Firefox 19+ */
 :-ms-input-placeholder { color: #bab9b9; } /* IE 10+ */
