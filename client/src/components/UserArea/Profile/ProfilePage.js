@@ -6,7 +6,6 @@ import { getProfileRequest, updateProfileRequest, changePassword, removeAccount 
 class ProfilePage extends React.Component {
 
   componentDidMount() {
-
     this.props.getProfileRequest().catch(err => {
       if (!err.response) return this.setState({ errors: err.global});
       if (err.response) return err.response.json().then(data => this.setState({errors: data.errors}));

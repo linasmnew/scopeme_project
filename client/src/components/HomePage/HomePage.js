@@ -6,7 +6,7 @@ class HomePage extends React.Component {
       return (
         <div className="homepage_content_container">
           <h2>
-            Homepage text.
+            List all of your social media and other pages in a single place.
           </h2>
           <Link className="link_getStarted" to="/signup">Get Started</Link>
         </div>

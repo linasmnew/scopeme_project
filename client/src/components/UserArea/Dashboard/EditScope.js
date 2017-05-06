@@ -1,7 +1,6 @@
 import React from 'react';
 import ScopeForm from './ScopeForm';
 import scopeValidation from './scopeValidation';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchScope, addScopeRequest, editScopeRequest } from '../../../actions/scopes';
 

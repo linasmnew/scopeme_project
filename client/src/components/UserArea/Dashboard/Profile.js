@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import editIcon from '../../../pencil2-lighter.svg';
 
 class Profile extends React.Component {

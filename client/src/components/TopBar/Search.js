@@ -46,7 +46,7 @@ class Search extends React.Component {
       <div className="searchContainer">
         <div className="searchContainerInnerFix">
         <div className={classnames('search_input_container', {search_input_container_input_focused: this.state.inFocus})}>
-          <span className="search_icon_span"><img src={searchIcon} width="16" height="16" /></span>
+          <span className="search_icon_span"><img src={searchIcon} width="16" height="16" alt="search icon" /></span>
           <input type="search" name="searchValue" placeholder="Search" value={this.state.searchValue} onChange={this.handleChange} onFocus={this.toggleSearchClassName} onBlur={this.toggleSearchClassName} autoComplete="off" />
         </div>
 
