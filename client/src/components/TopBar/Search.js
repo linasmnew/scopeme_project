@@ -28,12 +28,14 @@ class Search extends React.Component {
 
   //click on search results
   handleClick = (e) => {
-    this.setState({displaySearchResults: false, searchValue: ''});
+    this.setState({displaySearchResults: false, searchValue: '', inFocus: !this.state.inFocus});
     this.context.router.push(`/${this.state.username}`);
   }
 
   toggleSearchClassName = (e) => {
-    this.setState({inFocus: !this.state.inFocus});
+    if(this.state.searchValue === ''){
+      this.setState({inFocus: !this.state.inFocus});
+    }
   }
 
   render() {
