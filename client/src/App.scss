@@ -10,7 +10,7 @@ a { text-decoration: none; }
 a:link { color: inherit; }
 a:visited { color: inherit; }
 ul { list-style: none; }
-button { border-style: none; }
+button { border-style: none; outline: none; }
 input {
   font-family: $font-stack;
   outline: none;
@@ -25,6 +25,7 @@ input {
 input, textarea, input[type="search"] {
   -webkit-appearance: none;
   border-radius: 0;
+  outline: none;
 }
 
 body {
@@ -548,14 +549,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
 /*******************************
   =Media queries
 *******************************/
@@ -630,6 +623,41 @@ body {
   }
   .guest_component_container {
     margin-top: 120px;
+  }
+
+  .guest_component_container {
+    form {
+      button:hover {
+        background: #E96373;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .auth_component_container {
+    form {
+      button:hover {
+        background: #0AD29F;
+        cursor: pointer;
+      }
+    }
+  }
+  .profile_image_cropper {
+    cursor: pointer;
+  }
+  .edit_profile_button {
+    cursor: pointer;
+  }
+  .scope_buttons_container {
+    button:hover {
+      cursor: pointer;
+    }
+  }
+  .optional_color_icon_container {
+    cursor: pointer;
+  }
+  .App_menu_icon_container {
+    cursor: pointer;
   }
 }
 
