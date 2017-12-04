@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { updateUsernameRequest } from '../../../actions/createUsername';
 
 class UsernameCreation extends React.Component {
-
   state = {
     username: '',
     errors: {}
@@ -26,25 +26,19 @@ class UsernameCreation extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    const { username } = this.state;
-
-    this.props.updateUsernameRequest({username}).then(() => {
-      //change to this.props
-      return this.context.router.push('/dashboard');
+    this.props.updateUsernameRequest({username: this.state.username}).then(() => {
+      this.props.history.replace('/dashboard');
     }).catch(err => {
       //if can't reach server
       if(!err.response) return this.setState({ errors: err.global});
       //if custom error from server
       if (err.response) return err.response.json().then(data => this.setState({errors: data.errors}));
     });
-
   }
 
   render() {
     return (
       <div className="guest_component_container">
-
         <form onSubmit={this.handleSubmit}>
           {!!this.state.errors.global && <div className="general_form_error"><p>{this.state.errors.global}</p></div>}
 
@@ -60,9 +54,8 @@ class UsernameCreation extends React.Component {
 
 }
 
-
 UsernameCreation.contextTypes = {
-  router: React.PropTypes.object
+  router: PropTypes.object
 }
 
 export default connect(null, { updateUsernameRequest })(UsernameCreation);

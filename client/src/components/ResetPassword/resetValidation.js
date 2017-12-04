@@ -1,6 +1,5 @@
 import validator from '../../../public/validator.min.js';
 
-
 const emailValidation = (data) => {
   let validationErrors = {};
 
@@ -11,13 +10,10 @@ const emailValidation = (data) => {
   return { validationErrors, isValid };
 };
 
-
 const passwordCreateValidation = (data) => {
   let validationErrors = {};
 
   if(data.newPassword !== data.newPasswordConfirm) validationErrors.newPasswordConfirm = "Passwords do not match";
-
-  /* TODO: check if pass only consists of legit characters */
 
   //validation
   if(data.newPassword.length < 10) validationErrors.newPassword = "Password must consist of a minimum of 10 characters";
@@ -29,8 +25,5 @@ const passwordCreateValidation = (data) => {
   const isValid = Object.keys(validationErrors).length === 0;
   return { validationErrors, isValid };
 };
-
-
-
 
 export { passwordCreateValidation, emailValidation };

@@ -4,7 +4,7 @@ import Scope from './Scope';
 const ScopesList = ({scopes}) => {
   const scopesList = (
     <div>
-      {scopes.map((scope, index) => <Scope scope={scope} key={index} />)}
+      {scopes.map((scope) => <Scope scope={scope} key={scope._id} />)}
     </div>
   );
 

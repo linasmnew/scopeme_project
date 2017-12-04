@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import EmailForm from './EmailForm';
 import NewPasswordForm from './NewPasswordForm';
@@ -6,7 +7,6 @@ import { resetPasswordRequest, newPasswordRequest } from '../../actions/resetPas
 import { passwordCreateValidation, emailValidation  } from './resetValidation';
 
 class PasswordResetPage extends React.Component {
-
   state = {
     email: '',
     emailSuccessMessage: '',
@@ -15,7 +15,6 @@ class PasswordResetPage extends React.Component {
     passwordSuccessMessage: '',
     errors: {}
   };
-
 
   handleChange = (e) => {
     if(this.state.errors[e.target.name]) {
@@ -56,9 +55,6 @@ class PasswordResetPage extends React.Component {
     if(isValid) {
       this.props.newPasswordRequest({newPassword, newPasswordConfirm}, token).then(() => {
         this.setState({passwordSuccessMessage: 'Password created successfuly'});
-        //do whatever on success, if dispatch was used in async action creator
-        //render gets called before this, otherwise this get's called directly
-        //after async action creator resolves
       }).catch(err => {
         if(!err.response) return this.setState({ errors: err.global});
         if (err.response) return err.response.json().then(data => this.setState({errors: data.errors}));
@@ -77,11 +73,9 @@ class PasswordResetPage extends React.Component {
     } else {
       this.emailSubmit();
     }
-
   }
 
   render() {
-
     let idExists = !!this.props.match.params.id;
       return (
         <div className="guest_component_container">
@@ -95,7 +89,7 @@ class PasswordResetPage extends React.Component {
 }
 
 PasswordResetPage.contextTypes = {
-  router: React.PropTypes.object
+  router: PropTypes.object
 }
 
 function mapStateToProps(state) {

@@ -5,7 +5,7 @@ import { logoutRequest } from '../../../actions/logout';
 class Logout extends React.Component {
   componentWillMount() {
     this.props.dispatch(logoutRequest()).then(() => {
-      this.props.replace('/login');
+      this.props.history.replace('/login');
     });
   }
 

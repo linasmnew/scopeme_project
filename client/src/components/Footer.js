@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 class Footer extends React.Component {
-
   isVisitorPage() {
     //if visitor page than add className footer_visitor
     //to make font color white because visitor pages have green background

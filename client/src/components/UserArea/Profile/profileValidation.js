@@ -29,9 +29,6 @@ const profileValidation = (data) => {
   return { validationErrors, isValid };
 };
 
-
-
-
 const passwordChangeValidation = (data) => {
   let validationErrors = {};
 
@@ -47,8 +44,5 @@ const passwordChangeValidation = (data) => {
   const isValid = Object.keys(validationErrors).length === 0;
   return { validationErrors, isValid };
 };
-
-
-
 
 export { profileValidation, passwordChangeValidation };

@@ -8,14 +8,12 @@ import { getProfileRequest } from '../../../actions/profile';
 import { uploadPhotoRequest } from '../../../actions/photoUpload';
 
 class DashboardPage extends React.Component {
-
   state = {
     errors: {},
     fetching: false
   };
 
   componentDidMount() {
-
     this.props.getProfileRequest().catch(err => {
       if (!err.response) return this.setState({ errors: err.global});
       if (err.response) return err.response.json().then(data => {
@@ -34,14 +32,12 @@ class DashboardPage extends React.Component {
          if(this.refs.myRef) return this.setState({errors: data.errors});
       });
     });
-
   }
 
 
   render() {
     return (
       <div ref="myRef">
-
         <div className="auth_component_container">
           <Profile push={this.props.push} profile={this.props.profile} uploadPhotoRequest={this.props.uploadPhotoRequest} />
         </div>
@@ -51,9 +47,8 @@ class DashboardPage extends React.Component {
         </div>
 
         <div className="auth_component_container">
-          <ScopesList scopes={this.props.scopes} removeScope={this.props.removeScopeRequest} />
+          <ScopesList scopes={this.props.scopes} removeScope={this.props.removeScopeRequest} history={this.props.history} />
         </div>
-
       </div>
     );
   }

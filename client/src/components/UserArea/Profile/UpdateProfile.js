@@ -2,11 +2,9 @@ import React from 'react';
 import ProfileUpdateForm from './ProfileUpdateForm';
 import PasswordChangeForm from './PasswordChangeForm';
 import DeleteProfileImage from './DeleteProfileImage';
-
 import { profileValidation, passwordChangeValidation } from './profileValidation';
 
 class UpdateProfile extends React.Component {
-
   state = {
     fullName: '',
     description: '',
@@ -86,7 +84,6 @@ class UpdateProfile extends React.Component {
 
   handleAccountRemoval = (e) => {
     this.props.removeAccount().then(() => {
-      // window.location.reload();
       this.props.replace('/');
     });
   }

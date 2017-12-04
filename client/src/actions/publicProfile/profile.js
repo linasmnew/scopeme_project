@@ -18,15 +18,10 @@ export function getPublicProfile(username) {
       method: 'GET',
       headers: { "Content-Type": "application/json" },
       credentials: 'same-origin'
-    }).then(response => {
-      if (response.ok) {
-        return response.json().then(data => {
-          return dispatch(receiveProfile(data));
-        });
-      } else {
-      }
+    }).then(handleResponse).then(data => {
+      return dispatch(receiveProfile(data));
     });
-  }
+  };
 }
 
 
@@ -44,16 +39,10 @@ export function getAllScopesRequest(username) {
       method: 'GET',
       headers: { "Content-Type": "application/json" },
       credentials: 'same-origin'
-    }).then(response => {
-      if (response.ok) {
-        return response.json().then(data => {
-          return dispatch(receiveScopes(data));
-        });
-      } else {
-        // console.log('api/user/scopes/:username response bad');
-      }
+    }).then(handleResponse).then(data => {
+      return dispatch(receiveScopes(data));
     });
-  }
+  };
 }
 
 

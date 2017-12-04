@@ -47,7 +47,7 @@ class TopBar extends React.Component {
             <img src={!this.props.isAuthenticated && !isUsernamePath ? menuGuest : menuAuth} alt="menu icon" width="32" height="32" />
           </div>
 
-          {(this.props.isAuthenticated || isUsernamePath) &&  <Search getUserByUsername={this.props.getUserByUsername} />}
+          {(this.props.isAuthenticated || isUsernamePath) &&  <Search getUserByUsername={this.props.getUserByUsername} history={this.props.history} />}
 
           <div className="responsive_nav_container_outer_fix_collapse">
             <div className={classnames('responsive_nav_container', {show: this.state.displayNav, hide: !this.state.displayNav})} onClick={this.click}>

@@ -1,16 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Scope from './Scope';
 
 class ScopesList extends React.Component {
-
-  onClickRemove(scopeId) {
+  onClickRemove = (scopeId) => () => {
     this.props.removeScope(scopeId);
   }
 
-  onClickEdit(scopeId) {
-    return this.context.router.push(`/edit-scope/${scopeId}`);
+  onClickEdit = (scopeId) => () => {
+    this.props.history.push(`/edit-scope/${scopeId}`);
   }
-
 
   render() {
     const emptyScopes = (<p>You have no scopes in your collection</p>);
@@ -18,7 +17,7 @@ class ScopesList extends React.Component {
     const scopesList = (
       !!this.props.scopes &&
       <div>
-        {this.props.scopes.map((scope, index) => <Scope scope={scope} key={index} editScope={() => this.onClickEdit(scope._id)} removeScope={() => this.onClickRemove(scope._id)} />)}
+        {this.props.scopes.map((scope) => <Scope scope={scope} key={scope._id} editScope={this.onClickEdit(scope._id)} removeScope={this.onClickRemove(scope._id)} />)}
       </div>
     );
 
@@ -28,17 +27,10 @@ class ScopesList extends React.Component {
       </div>
     );
   }
-
 }
-
-
-ScopesList.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
-
 
 ScopesList.propTypes = {
-  scopes: React.PropTypes.array.isRequired,
+  scopes: PropTypes.array.isRequired,
 };
 
 export default ScopesList;

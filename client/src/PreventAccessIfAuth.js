@@ -6,7 +6,7 @@ export default function(ComposedClass) {
 
     componentWillMount() {
       if (this.props.isAuthenticated) {
-        this.props.replace('/dashboard');
+        this.props.history.replace('/dashboard');
       }
     }
 

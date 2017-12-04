@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Scope = ({ scope }) => {
-
   let scopeBackgroundColor = {
     //if scope was created without background option then make it green
     background: scope.backgroundColor || '#099'
@@ -11,11 +10,11 @@ const Scope = ({ scope }) => {
     color: scope.textColor || '#fff'
   };
 
-    return (
-      <div style={scopeBackgroundColor} className="scope_block">
-        <a style={scopeTextColor} target="_blank" href={"http://"+scope.link}>{scope.siteName}</a>
-      </div>
-    );
+  return (
+    <div style={scopeBackgroundColor} className="scope_block">
+      <a style={scopeTextColor} target="_blank" href={"http://"+scope.link}>{scope.siteName}</a>
+    </div>
+  );
 }
 
 export default Scope;

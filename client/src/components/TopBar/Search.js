@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import searchIcon from '../../search.svg';
 
 class Search extends React.Component {
-
   state = {
     displaySearchResults: false,
     found: false,
@@ -29,7 +28,7 @@ class Search extends React.Component {
   //click on search results
   handleClick = (e) => {
     this.setState({displaySearchResults: false, searchValue: '', inFocus: !this.state.inFocus});
-    this.context.router.push(`/${this.state.username}`);
+    this.props.history.push(`/${this.state.username}`);
   }
 
   toggleSearchClassName = (e) => {
@@ -67,8 +66,5 @@ class Search extends React.Component {
   }
 }
 
-Search.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
 
 export default Search;

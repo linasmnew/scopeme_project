@@ -14,12 +14,12 @@ class PublicProfilePage extends React.Component {
 
       this.props.getPublicProfile(nextProps.match.params.username).then(() => {
       }).catch(err => {
-        console.log('profile request errored');
+        // console.log('profile request errored');
       });
 
       this.props.getAllScopesRequest(nextProps.match.params.username).then(() => {
       }).catch(err => {
-        console.log('profile request errored');
+        // console.log('profile request errored');
       });
     }
   }
@@ -33,12 +33,12 @@ class PublicProfilePage extends React.Component {
 
     this.props.getPublicProfile(this.props.match.params.username).then(() => {
     }).catch(err => {
-      console.log('profile request errored');
+      // console.log('profile request errored');
     });
 
     this.props.getAllScopesRequest(this.props.match.params.username).then(() => {
     }).catch(err => {
-      console.log('profile request errored');
+      // console.log('profile request errored');
     });
 
   }

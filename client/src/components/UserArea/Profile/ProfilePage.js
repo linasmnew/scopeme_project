@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { getProfileRequest, updateProfileRequest, changePassword, removeAccount } from '../../../actions/profile';
 
 class ProfilePage extends React.Component {
-
   componentDidMount() {
     this.props.getProfileRequest().catch(err => {
       if (!err.response) return this.setState({ errors: err.global});

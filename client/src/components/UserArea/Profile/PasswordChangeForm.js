@@ -23,9 +23,7 @@ const PasswordChangeForm = ({ state, handleChange, handleSubmit }) => {
 
       <button>Change password</button>
     </form>
-
   );
-
 }
 
 export default PasswordChangeForm;

@@ -6,7 +6,6 @@ import { loginRequest } from '../../actions/login';
 import { authValidation } from './authValidation';
 
 class LoginPage extends React.Component {
-
   state = {
     email: '',
     password: '',
@@ -42,33 +41,26 @@ class LoginPage extends React.Component {
     } else {
       return this.setState({ errors: validationErrors});
     }
-
   }
 
   render() {
-      return (
-        <div className="guest_component_container">
-          <form onSubmit={this.handleSubmit}>
+    return (
+      <div className="guest_component_container">
+        <form onSubmit={this.handleSubmit}>
           {!!this.state.errors.global && <div className="general_form_error"><p>{this.state.errors.global}</p></div>}
 
-            <div className={classnames({field_error: !!this.state.errors.email})}><p>{this.state.errors.email}</p></div>
-            <input type="text" name="email" value={this.state.email} onChange={this.handleChange}  placeholder="Email" />
+          <div className={classnames({field_error: !!this.state.errors.email})}><p>{this.state.errors.email}</p></div>
+          <input type="text" name="email" value={this.state.email} onChange={this.handleChange}  placeholder="Email" />
 
-            <div className={classnames({field_error: !!this.state.errors.password})}><p>{this.state.errors.password}</p></div>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
+          <div className={classnames({field_error: !!this.state.errors.password})}><p>{this.state.errors.password}</p></div>
+          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
 
-            <button>Login</button>
-          </form>
-          <p className="authentication_info_p">Forgot your password? <Link to="/reset" className="authentication_info_link">reset</Link></p>
-        </div>
-      );
+          <button>Login</button>
+        </form>
+        <p className="authentication_info_p">Forgot your password? <Link to="/reset" className="authentication_info_link">reset</Link></p>
+      </div>
+    );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    auth: state.auth
-  };
-}
-
-export default connect(mapStateToProps, { loginRequest })(LoginPage);
+export default connect(null, { loginRequest })(LoginPage);

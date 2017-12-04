@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import editIcon from '../../../pencil2-lighter.svg';
 
 class Profile extends React.Component {
@@ -8,8 +9,7 @@ class Profile extends React.Component {
   };
 
   triggerFileInput = (e) => {
-    //triggers file input element
-    this.inputElement.click();
+    this.inputElement.click(); //triggers file input element
   }
 
   handleFileUpload = (e) => {
@@ -23,7 +23,6 @@ class Profile extends React.Component {
       if (err.response) return err.response.json().then(data => this.setState({errors: data.errors}));
     });
   }
-
 
   render() {
     const fileInputStyle = {
@@ -40,7 +39,7 @@ class Profile extends React.Component {
         ) : (
 
           <div className="profile_image_and_bio_container">
-          <button onClick={() => this.props.push('/profile')} className="edit_profile_button"><img src={editIcon} alt="profile settings" width="24" height="24" /></button>
+          <Link to="/profile" className="edit_profile_button"><img src={editIcon} alt="profile settings" width="24" height="24" /></Link>
 
             <div className="profile_image_cropper" onClick={this.triggerFileInput}>
               <input accept="image/x-png,image/jpeg" ref={input => this.inputElement = input} type="file" id="image_file" onChange={this.handleFileUpload} style={fileInputStyle} />

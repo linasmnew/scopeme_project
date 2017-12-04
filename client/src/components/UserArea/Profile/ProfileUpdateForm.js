@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 
 const ProfileUpdateForm = ({ state, handleChange, handleSubmit }) => {
-
   return (
     <form onSubmit={handleSubmit}>
       {!!state.errors.global && <div className="general_form_error"><p>{state.errors.global}</p></div>}
@@ -24,9 +23,7 @@ const ProfileUpdateForm = ({ state, handleChange, handleSubmit }) => {
 
       <button>Update</button>
     </form>
-
   );
-
 }
 
 export default ProfileUpdateForm;

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route, Switch
-} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import HomePage from './components/HomePage/HomePage';
@@ -23,10 +20,9 @@ import PublicProfilePage from './components/PublicProfile/PublicProfilePage';
 import NotFound from './404';
 
 class App extends Component {
-
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className={classnames('app_wrapper', {user_app_wrapper: this.props.isAuthenticated, guest_app_wrapper: !this.props.isAuthenticated})}>
           <div className="App">
             <TopBar />
@@ -48,11 +44,10 @@ class App extends Component {
             <Footer />
           </div>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
-
 
 function mapStateToProps(state) {
   return {

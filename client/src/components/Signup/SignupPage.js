@@ -6,7 +6,6 @@ import { signupRequest } from '../../actions/signup';
 import { authValidation } from './authValidation';
 
 class SignupPage extends React.Component {
-
   state = {
     email: '',
     password: '',
@@ -57,12 +56,10 @@ class SignupPage extends React.Component {
 
   render() {
       return (
-
         <div className="guest_component_container">
-        {this.state.redirect && <Redirect to="/create-username" />}
+          {this.state.redirect && <Redirect to="/create-username" />}
 
           <form onSubmit={this.handleSubmit}>
-
            {!!this.state.errors.global && <div className="general_form_error"><p>{this.state.errors.global}</p></div>}
 
             <div className={classnames({field_error: !!this.state.errors.email})}><p>{this.state.errors.email}</p></div>
@@ -79,7 +76,6 @@ our <Link to="/terms" className="authentication_info_link">terms & privacy polic
       );
   }
 }
-
 
 function mapStateToProps(state) {
   return {

@@ -9,6 +9,8 @@ function receiveUploadedProfilePhotoUrl(image) {
   };
 }
 
+
+
 export function uploadPhotoRequest({image}) {
   let imgBody = new FormData();
   imgBody.append('image', image);

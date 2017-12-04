@@ -4,9 +4,7 @@ import scopeValidation from './scopeValidation';
 import { connect } from 'react-redux';
 import { fetchScope, addScopeRequest, editScopeRequest } from '../../../actions/scopes';
 
-
 class ScopeFormComponent extends React.Component {
-
   state = {
     _id: this.props.scope ? this.props.scope._id : null,
     siteName: this.props.scope ? this.props.scope.siteName : '',

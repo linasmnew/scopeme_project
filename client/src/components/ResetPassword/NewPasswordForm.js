@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 
 const NewPasswordForm = ({ state, handleChange, handleSubmit }) => {
-
   return (
     <form onSubmit={handleSubmit}>
       {!!state.errors.global && <div className="general_form_error"><p>{state.errors.global}</p></div>}
@@ -16,9 +15,7 @@ const NewPasswordForm = ({ state, handleChange, handleSubmit }) => {
 
       <button>Create new password</button>
     </form>
-
   );
-
 }
 
 export default NewPasswordForm;
